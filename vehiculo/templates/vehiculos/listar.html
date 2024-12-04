@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de Vehiculos {% endblock %}
+
+{% block contenido %} 
+
+<h1 class="p-5">LISTAR VEHICULOS</h1> 
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Serial Carroceria</th>
+        <th scope="col">Serial Motor</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Condicion de Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehiculo in vehiculos %}
+        <tr>
+          <td>{{vehiculo.marca}}</td>
+          <td>{{vehiculo.modelo}}</td>
+          <td>{{vehiculo.serCar}}</td>
+          <td>{{vehiculo.serMot}}</td>
+          <td>{{vehiculo.categoria}}</td>
+          <td>{{vehiculo.precio}}</td>
+          <td>{{vehiculo.conPrecio}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

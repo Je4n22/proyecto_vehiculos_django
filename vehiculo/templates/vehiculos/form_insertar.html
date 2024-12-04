@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block titulo %} Crear Vehiculos {% endblock %}
+
+{% block contenido %} 
+
+<h1 class="p-5"> FORMULARIO CREAR VEHICULOS</h1> 
+
+    {% if er %}
+     <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+        {{ er }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endif %}
+    {% if er2 %}
+    <div class="alert alert-warning alert-dismissible fade show mb-2" role="alert">
+       {{ er2 }}
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+   {% endif %}
+        <form class="row g-3 needs-validation" action="/crear" method="post">
+            {% csrf_token %}
+            <div class="col-md-4">
+                <label for="marca" class="form-label">Marca</label>
+                <select class="form-select" name="marca" required>
+                  <option selected disabled value="">Selecciona...</option>
+                  <option>Fiat</option>
+                  <option>Chevrolet</option>
+                  <option>Ford</option>
+                  <option>Toyota</option>
+                </select>
+              </div>
+            <div class="col-md-4">
+              <label for="modelo" class="form-label">Modelo</label>
+              <input type="text" class="form-control" name="modelo" placeholder="Modelo" required>
+            </div>
+            <div class="col-md-4">
+              <label for="ser_car" class="form-label">Serial Carroceria</label>
+              <input type="text" class="form-control" name="ser_car" placeholder="Serial Carroceria" required>
+            </div>
+            <div class="col-md-4">
+                <label for="ser_mot" class="form-label">Serial Motor</label>
+                <input type="text" class="form-control" name="ser_mot" placeholder="Serial Motor" required>
+            </div>
+            <div class="col-md-4">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select class="form-select" name="categoria" required>
+                  <option selected disabled value="">Selecciona</option>
+                  <option>Particular</option>
+                  <option>Transporte</option>
+                  <option>Carga</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="precio" placeholder="0" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+            </div>
+            </div>
+            <div class="col-12 mt-5">
+              <button class="btn btn-primary" type="submit">Ingresar Vehiculo</button>
+            </div>
+
+          </form> 
+
+{% endblock %}

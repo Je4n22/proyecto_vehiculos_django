@@ -1,0 +1,44 @@
+# Archivos de entorno
+.env
+*.env
+
+# Archivos y directorios de Python
+*.pyc
+__pycache__/
+registration/
+
+# Archivos de configuración de bases de datos SQLite
+db.sqlite3
+
+# Directorios de migraciones de Django
+*/migrations/
+
+# Directorios de medios y archivos estáticos generados
+/media/
+staticfiles/
+
+# Archivos de configuración de editores y entornos de desarrollo
+.vscode/
+.idea/
+
+# Archivos y directorios de caché
+*.log
+*.pot
+*.mo
+*.swp
+*.swo
+*.DS_Store
+*.coverage
+.coverage.*
+
+# Entornos virtuales
+venv/
+.virtualenv/
+
+# Node.js
+node_modules/
+
+# Archivos de configuración de servicios CI/CD
+*.pylintrc
+*.envrc
+*.pre-commit-config.yaml
