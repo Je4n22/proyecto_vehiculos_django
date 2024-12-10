@@ -4,11 +4,11 @@ from .models import Vehiculo
 from .forms import VehiculoForm, formUsuario
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 
 # Create your views here.
 
-@login_required
 def index(request):
     return render(request, 'vehiculos/index.html')
 
@@ -44,20 +44,23 @@ def crear(request):
         datos = { 'er2' : 'Presionar botón para guardar datos!'}
         return render(request, 'vehiculos/form_insertar.html', datos)
     
+
 def formRegistrar(request):
-    data = {
-        'form': formUsuario()
-    }
     if request.method == 'POST':
-        formulario = formUsuario(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            usuario = formulario.cleaned_data['username']
-            password = formulario.cleaned_data['password1']
+        form = formUsuario(request.POST)
+        if form.is_valid():
+            form.save()
+            usuario = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
             user = authenticate(username=usuario, password=password)
             login(request, user)
             return redirect(to='reg_exitoso')
-    return render(request, 'registration/form_registrar.html', data)
+    else:
+        form = formUsuario()
+    
+    return render(request, 'registration/form_registrar.html', {'form': form})
+
+
 
 @login_required
 def formExitoso(request):
