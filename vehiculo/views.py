@@ -1,10 +1,8 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
 from .models import Vehiculo
-from .forms import VehiculoForm, formUsuario
+from .forms import formUsuario
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
-from django.contrib import messages
 
 
 # Create your views here.
