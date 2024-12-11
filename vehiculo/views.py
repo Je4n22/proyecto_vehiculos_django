@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate
 
 # Create your views here.
 
+@login_required
 def index(request):
     return render(request, 'vehiculos/index.html')
 
